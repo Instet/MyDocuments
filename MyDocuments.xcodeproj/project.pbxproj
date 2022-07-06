@@ -12,6 +12,10 @@
 		DBB6870128748C33009348BA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6870028748C33009348BA /* MainViewController.swift */; };
 		DBB6870628748C35009348BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB6870528748C35009348BA /* Assets.xcassets */; };
 		DBB6870928748C35009348BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB6870728748C35009348BA /* LaunchScreen.storyboard */; };
+		DBB6871328749674009348BA /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6871228749674009348BA /* FileManagerService.swift */; };
+		DBCF016D2875FE3D000AE722 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF016C2875FE3D000AE722 /* Document.swift */; };
+		DBCF016F2875FED6000AE722 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF016E2875FED6000AE722 /* MainTableViewCell.swift */; };
+		DBCF017228760343000AE722 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF017128760343000AE722 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +26,10 @@
 		DBB6870528748C35009348BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBB6870828748C35009348BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBB6870A28748C35009348BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DBB6871228749674009348BA /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
+		DBCF016C2875FE3D000AE722 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		DBCF016E2875FED6000AE722 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		DBCF017128760343000AE722 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +62,50 @@
 		DBB686FB28748C33009348BA /* MyDocuments */ = {
 			isa = PBXGroup;
 			children = (
+				DBCF016B2875FE21000AE722 /* Model */,
+				DBB6871128749655009348BA /* Main */,
+				DBB6871028749626009348BA /* FileManagerService */,
 				DBB686FC28748C33009348BA /* AppDelegate.swift */,
 				DBB686FE28748C33009348BA /* SceneDelegate.swift */,
-				DBB6870028748C33009348BA /* MainViewController.swift */,
+				DBCF0170287602EC000AE722 /* Extensions */,
 				DBB6870528748C35009348BA /* Assets.xcassets */,
 				DBB6870728748C35009348BA /* LaunchScreen.storyboard */,
 				DBB6870A28748C35009348BA /* Info.plist */,
 			);
 			path = MyDocuments;
+			sourceTree = "<group>";
+		};
+		DBB6871028749626009348BA /* FileManagerService */ = {
+			isa = PBXGroup;
+			children = (
+				DBB6871228749674009348BA /* FileManagerService.swift */,
+			);
+			path = FileManagerService;
+			sourceTree = "<group>";
+		};
+		DBB6871128749655009348BA /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DBB6870028748C33009348BA /* MainViewController.swift */,
+				DBCF016E2875FED6000AE722 /* MainTableViewCell.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DBCF016B2875FE21000AE722 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF016C2875FE3D000AE722 /* Document.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DBCF0170287602EC000AE722 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF017128760343000AE722 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,6 +181,10 @@
 				DBB6870128748C33009348BA /* MainViewController.swift in Sources */,
 				DBB686FD28748C33009348BA /* AppDelegate.swift in Sources */,
 				DBB686FF28748C33009348BA /* SceneDelegate.swift in Sources */,
+				DBB6871328749674009348BA /* FileManagerService.swift in Sources */,
+				DBCF016F2875FED6000AE722 /* MainTableViewCell.swift in Sources */,
+				DBCF016D2875FE3D000AE722 /* Document.swift in Sources */,
+				DBCF017228760343000AE722 /* Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
