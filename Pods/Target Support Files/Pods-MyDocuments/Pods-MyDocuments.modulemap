@@ -1,0 +1,6 @@
+framework module Pods_MyDocuments {
+  umbrella header "Pods-MyDocuments-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -11,7 +11,7 @@ import UIKit
 struct Document {
 
     var image: UIImage
-    var dateCreated: String
+    var name: String
     var size: String
     var path: String
 }

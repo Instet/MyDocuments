@@ -7,28 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DB710EF428787E540087FD2B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710EF328787E540087FD2B /* SettingsViewController.swift */; };
+		DB710EF628787E730087FD2B /* SortedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710EF528787E730087FD2B /* SortedTableViewCell.swift */; };
+		DB710EF928787EFB0087FD2B /* PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710EF828787EFB0087FD2B /* PassViewController.swift */; };
+		DB9AAB3D287B8771004D01DB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DB9AAB3C287B8771004D01DB /* KeychainAccess */; };
+		DBA6740C287A08E500C6BCEB /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6740B287A08E500C6BCEB /* KeychainManager.swift */; };
+		DBA67412287B0B1200C6BCEB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA67411287B0B1200C6BCEB /* MainTabBarController.swift */; };
+		DBA67414287B118400C6BCEB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA67413287B118400C6BCEB /* Credentials.swift */; };
+		DBA67416287B1E4F00C6BCEB /* AuthState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA67415287B1E4F00C6BCEB /* AuthState.swift */; };
 		DBB686FD28748C33009348BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB686FC28748C33009348BA /* AppDelegate.swift */; };
 		DBB686FF28748C33009348BA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB686FE28748C33009348BA /* SceneDelegate.swift */; };
-		DBB6870128748C33009348BA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6870028748C33009348BA /* MainViewController.swift */; };
+		DBB6870128748C33009348BA /* DocumentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6870028748C33009348BA /* DocumentsViewController.swift */; };
 		DBB6870628748C35009348BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DBB6870528748C35009348BA /* Assets.xcassets */; };
 		DBB6870928748C35009348BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DBB6870728748C35009348BA /* LaunchScreen.storyboard */; };
 		DBB6871328749674009348BA /* FileManagerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBB6871228749674009348BA /* FileManagerService.swift */; };
 		DBCF016D2875FE3D000AE722 /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF016C2875FE3D000AE722 /* Document.swift */; };
-		DBCF016F2875FED6000AE722 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF016E2875FED6000AE722 /* MainTableViewCell.swift */; };
+		DBCF016F2875FED6000AE722 /* DocumentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF016E2875FED6000AE722 /* DocumentsTableViewCell.swift */; };
 		DBCF017228760343000AE722 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBCF017128760343000AE722 /* Extensions.swift */; };
+		E2C9C3C1CE0444255220DC2F /* Pods_MyDocuments.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48880EA29D53C0E49049F993 /* Pods_MyDocuments.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D8E679684E2ACF86C0CC3FC /* Pods-MyDocuments.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDocuments.release.xcconfig"; path = "Target Support Files/Pods-MyDocuments/Pods-MyDocuments.release.xcconfig"; sourceTree = "<group>"; };
+		48880EA29D53C0E49049F993 /* Pods_MyDocuments.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MyDocuments.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCD95149AEA18C911AC9FB81 /* Pods-MyDocuments.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyDocuments.debug.xcconfig"; path = "Target Support Files/Pods-MyDocuments/Pods-MyDocuments.debug.xcconfig"; sourceTree = "<group>"; };
+		DB710EF328787E540087FD2B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		DB710EF528787E730087FD2B /* SortedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortedTableViewCell.swift; sourceTree = "<group>"; };
+		DB710EF828787EFB0087FD2B /* PassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassViewController.swift; sourceTree = "<group>"; };
+		DBA6740B287A08E500C6BCEB /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
+		DBA67411287B0B1200C6BCEB /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		DBA67413287B118400C6BCEB /* Credentials.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Credentials.swift; sourceTree = "<group>"; };
+		DBA67415287B1E4F00C6BCEB /* AuthState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthState.swift; sourceTree = "<group>"; };
 		DBB686F928748C33009348BA /* MyDocuments.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyDocuments.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBB686FC28748C33009348BA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DBB686FE28748C33009348BA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DBB6870028748C33009348BA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		DBB6870028748C33009348BA /* DocumentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewController.swift; sourceTree = "<group>"; };
 		DBB6870528748C35009348BA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DBB6870828748C35009348BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DBB6870A28748C35009348BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DBB6871228749674009348BA /* FileManagerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerService.swift; sourceTree = "<group>"; };
 		DBCF016C2875FE3D000AE722 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
-		DBCF016E2875FED6000AE722 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		DBCF016E2875FED6000AE722 /* DocumentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsTableViewCell.swift; sourceTree = "<group>"; };
 		DBCF017128760343000AE722 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -37,17 +56,82 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB9AAB3D287B8771004D01DB /* KeychainAccess in Frameworks */,
+				E2C9C3C1CE0444255220DC2F /* Pods_MyDocuments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FEE3295E54563218DB19544 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				48880EA29D53C0E49049F993 /* Pods_MyDocuments.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7274ED8027396E4CBD121BBD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCD95149AEA18C911AC9FB81 /* Pods-MyDocuments.debug.xcconfig */,
+				1D8E679684E2ACF86C0CC3FC /* Pods-MyDocuments.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		DB710EF228787E2A0087FD2B /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				DB710EF328787E540087FD2B /* SettingsViewController.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
+		DB710EF728787EDF0087FD2B /* PassView */ = {
+			isa = PBXGroup;
+			children = (
+				DB9AAB3A287B69A4004D01DB /* MainTabBar */,
+				DB710EF828787EFB0087FD2B /* PassViewController.swift */,
+				DBA67415287B1E4F00C6BCEB /* AuthState.swift */,
+			);
+			path = PassView;
+			sourceTree = "<group>";
+		};
+		DB9AAB38287B6946004D01DB /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				DBCF016E2875FED6000AE722 /* DocumentsTableViewCell.swift */,
+				DB710EF528787E730087FD2B /* SortedTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		DB9AAB39287B6967004D01DB /* KeychainManager */ = {
+			isa = PBXGroup;
+			children = (
+				DBA67413287B118400C6BCEB /* Credentials.swift */,
+				DBA6740B287A08E500C6BCEB /* KeychainManager.swift */,
+			);
+			path = KeychainManager;
+			sourceTree = "<group>";
+		};
+		DB9AAB3A287B69A4004D01DB /* MainTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				DBA67411287B0B1200C6BCEB /* MainTabBarController.swift */,
+			);
+			path = MainTabBar;
+			sourceTree = "<group>";
+		};
 		DBB686F028748C33009348BA = {
 			isa = PBXGroup;
 			children = (
 				DBB686FB28748C33009348BA /* MyDocuments */,
 				DBB686FA28748C33009348BA /* Products */,
+				7274ED8027396E4CBD121BBD /* Pods */,
+				1FEE3295E54563218DB19544 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,12 +146,16 @@
 		DBB686FB28748C33009348BA /* MyDocuments */ = {
 			isa = PBXGroup;
 			children = (
-				DBCF016B2875FE21000AE722 /* Model */,
-				DBB6871128749655009348BA /* Main */,
-				DBB6871028749626009348BA /* FileManagerService */,
 				DBB686FC28748C33009348BA /* AppDelegate.swift */,
 				DBB686FE28748C33009348BA /* SceneDelegate.swift */,
+				DBCF016B2875FE21000AE722 /* Models */,
+				DB710EF728787EDF0087FD2B /* PassView */,
+				DB710EF228787E2A0087FD2B /* SettingsView */,
+				DBB6871128749655009348BA /* DocumentsView */,
+				DB9AAB38287B6946004D01DB /* Cells */,
+				DBB6871028749626009348BA /* FileManagerService */,
 				DBCF0170287602EC000AE722 /* Extensions */,
+				DB9AAB39287B6967004D01DB /* KeychainManager */,
 				DBB6870528748C35009348BA /* Assets.xcassets */,
 				DBB6870728748C35009348BA /* LaunchScreen.storyboard */,
 				DBB6870A28748C35009348BA /* Info.plist */,
@@ -83,21 +171,20 @@
 			path = FileManagerService;
 			sourceTree = "<group>";
 		};
-		DBB6871128749655009348BA /* Main */ = {
+		DBB6871128749655009348BA /* DocumentsView */ = {
 			isa = PBXGroup;
 			children = (
-				DBB6870028748C33009348BA /* MainViewController.swift */,
-				DBCF016E2875FED6000AE722 /* MainTableViewCell.swift */,
+				DBB6870028748C33009348BA /* DocumentsViewController.swift */,
 			);
-			path = Main;
+			path = DocumentsView;
 			sourceTree = "<group>";
 		};
-		DBCF016B2875FE21000AE722 /* Model */ = {
+		DBCF016B2875FE21000AE722 /* Models */ = {
 			isa = PBXGroup;
 			children = (
 				DBCF016C2875FE3D000AE722 /* Document.swift */,
 			);
-			path = Model;
+			path = Models;
 			sourceTree = "<group>";
 		};
 		DBCF0170287602EC000AE722 /* Extensions */ = {
@@ -115,6 +202,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DBB6870D28748C35009348BA /* Build configuration list for PBXNativeTarget "MyDocuments" */;
 			buildPhases = (
+				0AE469337D0938C2269C8B19 /* [CP] Check Pods Manifest.lock */,
 				DBB686F528748C33009348BA /* Sources */,
 				DBB686F628748C33009348BA /* Frameworks */,
 				DBB686F728748C33009348BA /* Resources */,
@@ -124,6 +212,9 @@
 			dependencies = (
 			);
 			name = MyDocuments;
+			packageProductDependencies = (
+				DB9AAB3C287B8771004D01DB /* KeychainAccess */,
+			);
 			productName = MyDocuments;
 			productReference = DBB686F928748C33009348BA /* MyDocuments.app */;
 			productType = "com.apple.product-type.application";
@@ -152,6 +243,9 @@
 				Base,
 			);
 			mainGroup = DBB686F028748C33009348BA;
+			packageReferences = (
+				DB9AAB3B287B8771004D01DB /* XCRemoteSwiftPackageReference "KeychainAccess" */,
+			);
 			productRefGroup = DBB686FA28748C33009348BA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -173,18 +267,50 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0AE469337D0938C2269C8B19 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-MyDocuments-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		DBB686F528748C33009348BA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DBB6870128748C33009348BA /* MainViewController.swift in Sources */,
+				DBB6870128748C33009348BA /* DocumentsViewController.swift in Sources */,
+				DBA67412287B0B1200C6BCEB /* MainTabBarController.swift in Sources */,
 				DBB686FD28748C33009348BA /* AppDelegate.swift in Sources */,
 				DBB686FF28748C33009348BA /* SceneDelegate.swift in Sources */,
 				DBB6871328749674009348BA /* FileManagerService.swift in Sources */,
-				DBCF016F2875FED6000AE722 /* MainTableViewCell.swift in Sources */,
+				DBCF016F2875FED6000AE722 /* DocumentsTableViewCell.swift in Sources */,
+				DB710EF928787EFB0087FD2B /* PassViewController.swift in Sources */,
 				DBCF016D2875FE3D000AE722 /* Document.swift in Sources */,
+				DBA6740C287A08E500C6BCEB /* KeychainManager.swift in Sources */,
+				DBA67414287B118400C6BCEB /* Credentials.swift in Sources */,
 				DBCF017228760343000AE722 /* Extensions.swift in Sources */,
+				DB710EF628787E730087FD2B /* SortedTableViewCell.swift in Sources */,
+				DB710EF428787E540087FD2B /* SettingsViewController.swift in Sources */,
+				DBA67416287B1E4F00C6BCEB /* AuthState.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,6 +444,7 @@
 		};
 		DBB6870E28748C35009348BA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCD95149AEA18C911AC9FB81 /* Pods-MyDocuments.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -346,6 +473,7 @@
 		};
 		DBB6870F28748C35009348BA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1D8E679684E2ACF86C0CC3FC /* Pods-MyDocuments.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -394,6 +522,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DB9AAB3B287B8771004D01DB /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DB9AAB3C287B8771004D01DB /* KeychainAccess */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DB9AAB3B287B8771004D01DB /* XCRemoteSwiftPackageReference "KeychainAccess" */;
+			productName = KeychainAccess;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DBB686F128748C33009348BA /* Project object */;
 }

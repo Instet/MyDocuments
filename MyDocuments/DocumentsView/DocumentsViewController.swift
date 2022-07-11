@@ -1,5 +1,5 @@
 //
-//  MainViewController.swift
+//  DocumentsViewController.swift
 //  MyDocuments
 //
 //  Created by Руслан Магомедов on 05.07.2022.
@@ -8,26 +8,33 @@
 import UIKit
 import Photos
 import PhotosUI
+import Security
 
-class MainViewController: UIViewController {
+class DocumentsViewController: UIViewController {
 
-   var manager = FileManagerService()
+    private var manager = FileManagerService()
 
     private var jpegFiles: [Document] = []
 
-    var identifier = String(describing: MainTableViewCell.self)
+    private let identifier = String(describing: DocumentsTableViewCell.self)
 
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .plain)
+        table.backgroundColor = .white
         table.rowHeight = UITableView.automaticDimension
         return table
     }()
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        sorted()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(MainTableViewCell.self, forCellReuseIdentifier: identifier)
+        tableView.register(DocumentsTableViewCell.self, forCellReuseIdentifier: identifier)
         configNavBar()
         setupTableView()
         getFiles()
@@ -49,7 +56,6 @@ class MainViewController: UIViewController {
     }
 
     private func configNavBar() {
-        title = "My Documents"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add,
                                                             target: self,
                                                             action: #selector(showImagePicker))
@@ -69,16 +75,26 @@ class MainViewController: UIViewController {
                 print(error.localizedDescription)
             }
             let image = UIImage(contentsOfFile: file.path)
-            let date = atributes[.creationDate]
-            let size = atributes[.size]
-            let mb = Float(String(describing: size!))! / 1000000
+            let name = (file.path as NSString).lastPathComponent.split(separator: "-")[0]
+            let size = atributes[.size] ?? 0
+            let mb = Float(String(describing: size))! / 1000000
+            let formatSize = String(format: "Size: %.2f Mb", mb)
 
             jpegFiles.append(Document(image: image ?? UIImage(),
-                                      dateCreated: String(describing: date) ,
-                                      size: "Size: \(String(describing: mb)) Mb",
+                                      name: "\(name).jpg",
+                                      size: formatSize,
                                       path: file.path))
         }
 
+    }
+
+    private func sorted() {
+        if UserDefaults.standard.bool(forKey: "sorted") {
+            jpegFiles.sort(by: {$0.name > $1.name })
+        } else {
+            jpegFiles.sort(by: {$0.name < $1.name })
+        }
+        tableView.reloadData()
     }
 
 
@@ -86,14 +102,14 @@ class MainViewController: UIViewController {
 
 // MARK: - UITableViewDataSource
 
-extension MainViewController: UITableViewDataSource {
+extension DocumentsViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return jpegFiles.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? MainTableViewCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as? DocumentsTableViewCell else { return UITableViewCell()}
         cell.configCell(jpegFiles[indexPath.row])
         return cell
     }
@@ -105,7 +121,7 @@ extension MainViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 
-extension MainViewController: UITableViewDelegate {
+extension DocumentsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         let file = jpegFiles[indexPath.row].path
@@ -130,7 +146,7 @@ extension MainViewController: UITableViewDelegate {
 
 // MARK: - UIImagePickerControllerDelegate
 
-extension MainViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension DocumentsViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
 
     @objc private func showImagePicker() {
