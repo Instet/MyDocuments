@@ -75,8 +75,7 @@ extension SettingsViewController: UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            let pass = PassViewController()
-            pass.state = .changePassword
+            let pass = PassViewController(isChange: true)
             pass.modalPresentationStyle = .fullScreen
             present(pass, animated: true)
 

@@ -10,7 +10,6 @@
 		DB710EF428787E540087FD2B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710EF328787E540087FD2B /* SettingsViewController.swift */; };
 		DB710EF628787E730087FD2B /* SortedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710EF528787E730087FD2B /* SortedTableViewCell.swift */; };
 		DB710EF928787EFB0087FD2B /* PassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB710EF828787EFB0087FD2B /* PassViewController.swift */; };
-		DB9AAB3D287B8771004D01DB /* KeychainAccess in Frameworks */ = {isa = PBXBuildFile; productRef = DB9AAB3C287B8771004D01DB /* KeychainAccess */; };
 		DBA6740C287A08E500C6BCEB /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA6740B287A08E500C6BCEB /* KeychainManager.swift */; };
 		DBA67412287B0B1200C6BCEB /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA67411287B0B1200C6BCEB /* MainTabBarController.swift */; };
 		DBA67414287B118400C6BCEB /* Credentials.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBA67413287B118400C6BCEB /* Credentials.swift */; };
@@ -56,7 +55,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DB9AAB3D287B8771004D01DB /* KeychainAccess in Frameworks */,
 				E2C9C3C1CE0444255220DC2F /* Pods_MyDocuments.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,7 +211,6 @@
 			);
 			name = MyDocuments;
 			packageProductDependencies = (
-				DB9AAB3C287B8771004D01DB /* KeychainAccess */,
 			);
 			productName = MyDocuments;
 			productReference = DBB686F928748C33009348BA /* MyDocuments.app */;
@@ -244,7 +241,6 @@
 			);
 			mainGroup = DBB686F028748C33009348BA;
 			packageReferences = (
-				DB9AAB3B287B8771004D01DB /* XCRemoteSwiftPackageReference "KeychainAccess" */,
 			);
 			productRefGroup = DBB686FA28748C33009348BA /* Products */;
 			projectDirPath = "";
@@ -522,25 +518,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		DB9AAB3B287B8771004D01DB /* XCRemoteSwiftPackageReference "KeychainAccess" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/kishikawakatsumi/KeychainAccess";
-			requirement = {
-				branch = master;
-				kind = branch;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
-
-/* Begin XCSwiftPackageProductDependency section */
-		DB9AAB3C287B8771004D01DB /* KeychainAccess */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DB9AAB3B287B8771004D01DB /* XCRemoteSwiftPackageReference "KeychainAccess" */;
-			productName = KeychainAccess;
-		};
-/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DBB686F128748C33009348BA /* Project object */;
 }

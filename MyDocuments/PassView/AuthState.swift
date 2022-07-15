@@ -10,5 +10,5 @@ import Foundation
 enum AuthState {
     case hasPassword
     case createPassword
-    case changePassword
+    case newUser
 }

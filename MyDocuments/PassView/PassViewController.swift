@@ -11,18 +11,15 @@ import Security
 
 class PassViewController: UIViewController {
 
-    let service = "my_documents"
+    let service = "myDocuments"
     let user = "userKeychain"
 
     var state: AuthState = .hasPassword
-
-    private var isLogIn: Bool
+    var isChange: Bool
     private let keychain = KeychainManager()
     private var tempPassword: String?
     private var passwordFromKeychain: String?
 
-
-    
     private lazy var loginScrollView: UIScrollView = {
         let loginScrollView = UIScrollView()
         return loginScrollView
@@ -65,49 +62,52 @@ class PassViewController: UIViewController {
         return loginButton
     }()
 
-
-    init(isLogIn: Bool = false) {
-        self.isLogIn = isLogIn
+    init(isChange: Bool ) {
+        self.isChange = isChange
         super.init(nibName: nil, bundle: nil)
-
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        if self.isChange {
+            resetPassword()
+            state = .newUser
+            stateTitleButton()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         passwordTF.delegate = self
         setupConstraints()
+        checkPassword()
+        stateIsNewUser()
         stateTitleButton()
     }
 
-    // проверка пароля
    func checkPassword(){
-        do {
-            let data = try keychain.get(credentialsGet: CredentialsGet(user: self.user, service: self.service))
-            passwordFromKeychain = String(data: data!, encoding: .utf8)
-            print(passwordFromKeychain!)
-        } catch {
-            print("error")
+       do {
+           passwordFromKeychain = try keychain.get(credentialsGet: service)
+           print(passwordFromKeychain as Any)
+       } catch {
+           print("error")
+       }
 
-        }
     }
 
-    // сброс пароля
-    private func resetPassword(tempPassword: String?) {
-        guard let tempPasswordString = tempPassword else { return }
+    private func resetPassword() {
+        guard let tempPassword = passwordFromKeychain else { return }
         do {
-            try keychain.update(credentials: Credentials(user: self.user, service: self.service, password: tempPasswordString))
-            dismiss(animated: true)
+            try keychain.update(credentials: Credentials(user: self.user, service: self.service, password: tempPassword))
         } catch {
             showError(message: "\(error)")
         }
     }
 
-    // сохранить пароль
     private func savePassword(_ password: String?) {
         guard let passwordText = password else { return }
         do {
@@ -118,18 +118,31 @@ class PassViewController: UIViewController {
     }
 
     private func stateTitleButton() {
-        switch state {
+        switch state{
+        case .newUser:
+            loginButton.setTitle("Создать пароль", for: .normal)
         case .hasPassword:
             loginButton.setTitle("Введите пароль", for: .normal)
         case .createPassword:
             loginButton.setTitle("Повторите пароль", for: .normal)
-        case .changePassword:
-            loginButton.setTitle("Изменить пароль", for: .normal)
+        }
+    }
+
+    private func stateIsNewUser() {
+        if passwordFromKeychain == nil {
+            state = .newUser
+        } else {
+            state = .hasPassword
         }
     }
 
     @objc private func pressButton() {
         switch state {
+        case .newUser:
+            tempPassword = passwordTF.text
+            passwordTF.text = ""
+            state = .createPassword
+            stateTitleButton()
         case .hasPassword:
                 checkPassword()
                 if passwordFromKeychain == passwordTF.text {
@@ -138,34 +151,28 @@ class PassViewController: UIViewController {
                         print("success")
                     }
             } else {
-                print("переход на создание пароля")
-                state = .createPassword
-                tempPassword = passwordTF.text
-                passwordTF.text = ""
-                stateTitleButton()
+                showError(message: "Пароль не верный")
             }
         case .createPassword:
-            savePassword(passwordTF.text)
-            checkPassword()
-            if tempPassword == passwordFromKeychain {
-                print("успех")
-                DispatchQueue.main.async {
-                    self.pushTabBar()
-                    self.state = .hasPassword
-                }
-            } else {
-                showError(message: "Пароли не совпадают")
+            if passwordTF.text == tempPassword {
+                savePassword(passwordTF.text)
                 state = .hasPassword
                 passwordTF.text = ""
                 stateTitleButton()
+                if isChange {
+                    isChange = false
+                    dismiss(animated: true)
+                }
+            } else {
+                showError(message: "Пароли не совпадают")
+                state = .newUser
+                passwordTF.text = ""
+                stateTitleButton()
+
             }
-        case .changePassword:
-            ()
         }
 
-
     }
-
 
     @objc private func stateButton() {
         guard let password = passwordTF.text else { return }
@@ -232,7 +239,7 @@ extension PassViewController {
 
      func pushTabBar() {
          let tabBar = MainTabBarController()
-        
+    
          self.navigationController?.pushViewController(tabBar, animated: true)
     }
 

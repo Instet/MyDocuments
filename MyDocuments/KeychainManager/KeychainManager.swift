@@ -19,18 +19,25 @@ enum KeychainError: Error {
 
 class KeychainManager {
 
-     func save(credentials: Credentials) throws {
+    let kSecClassValue = NSString(format: kSecClass)
+    let kSecAttrAccountValue = NSString(format: kSecAttrAccount)
+    let kSecValueDataValue = NSString(format: kSecValueData)
+    let kSecClassGenericPasswordValue = NSString(format: kSecClassGenericPassword)
+    let kSecAttrServiceValue = NSString(format: kSecAttrService)
+    let kSecReturnAttributesValue = NSString(format: kSecReturnAttributes)
+    let kSecReturnDataValue = NSString(format: kSecReturnData)
+
+
+    func save(credentials: Credentials) throws {
 
         guard let password = credentials.password.data(using: .utf8) else {
             throw KeychainError.invalidContent
         }
 
-         let query = [kSecClass : kSecClassGenericPassword,
-                 kSecAttrServer : credentials.service,
-                kSecAttrAccount : credentials.user,
-                  kSecValueData : password ] as CFDictionary
+        let query: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, credentials.service, credentials.user, password], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecAttrAccountValue, kSecValueDataValue])
 
-        let status = SecItemAdd(query, nil)
+        SecItemDelete(query as CFDictionary)
+        let status = SecItemAdd(query as CFDictionary, nil)
 
         guard status != errSecDuplicateItem else {
             throw KeychainError.duplicateEntry
@@ -38,33 +45,36 @@ class KeychainManager {
         guard status == errSecSuccess else {
             throw KeychainError.unhandledError(status: status)
         }
-
         print("saved")
-
     }
 
-     func get(credentialsGet: CredentialsGet) throws -> Data? {
+    
+    func get(credentialsGet: String) throws -> String? {
 
-         let query = [kSecClass  : kSecClassGenericPassword,
-                  kSecAttrServer : credentialsGet.service,
-                 kSecAttrAccount : credentialsGet.user,
-                  kSecReturnData : kCFBooleanTrue  as AnyObject,
-                  kSecMatchLimit : kSecMatchLimitOne] as CFDictionary
 
-        var result: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &result)
-        guard status == errSecItemNotFound else {
-             throw KeychainError.notFound
-         }
+        let query: NSMutableDictionary = NSMutableDictionary(objects: [kSecClassGenericPasswordValue, credentialsGet, true, true], forKeys: [kSecClassValue, kSecAttrServiceValue, kSecReturnAttributesValue, kSecReturnDataValue])
+
+        var item: CFTypeRef?
+        let status = SecItemCopyMatching(query as CFDictionary, &item)
+
         guard status == errSecSuccess else {
             throw KeychainError.unhandledError(status: status)
         }
 
-        return result as? Data
+        guard let existingItem = item as? [String : Any],
+            let passwordData = existingItem[kSecValueData as String] as? Data,
+            let password = String(data: passwordData, encoding: String.Encoding.utf8),
+            let _ = existingItem[kSecAttrAccount as String] as? String
+        else {
+            throw KeychainError.unexpectedPasswordData
+        }
+       
+        return password
+
     }
     
 
-     func update(credentials: Credentials) throws {
+    func update(credentials: Credentials) throws {
         do {
             guard let passwordData = credentials.password.data(using: .utf8) else {
                 throw KeychainError.unexpectedPasswordData
@@ -73,22 +83,21 @@ class KeychainManager {
             let query = [
                 kSecClass: kSecClassGenericPassword,
                 kSecAttrService: credentials.service,
-
-            ] as CFDictionary
-
-            let attributes = [
                 kSecAttrAccount: credentials.user,
                 kSecValueData: passwordData
             ] as CFDictionary
 
-            let status = SecItemUpdate(query, attributes)
+            let status = SecItemDelete(query)
 
             guard status == errSecSuccess else {
                 throw KeychainError.unhandledError(status: status)
             }
+
+
         } catch {
             throw error
         }
+
     }
 
 }
